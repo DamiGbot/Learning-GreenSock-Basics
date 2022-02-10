@@ -1,7 +1,6 @@
 body {
 	font: 16px/26px "Open Sans", Helvetica, Helvetica Neue, Arial;
-	/* background-color: #76c897; */
-	background-color: white;
+	background-color: #76c897;
 	color: #2b4d66;
 	padding-bottom: 200px;
 }
@@ -54,6 +53,8 @@ h2 {
 	margin: 0 5px 0 2px;
 	font-size: 20px;
 	padding: 10px 0;
+	z-index: 2;
+	position: relative;
 }
 
 .list {

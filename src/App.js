@@ -1,39 +1,37 @@
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 
-// import svgImage from "./img/petr-tichy-ihatetomatoes-blog.svg";
 import "./App.css";
 
 function App() {
 	const header = useRef();
 
 	useEffect(() => {
-		gsap.to("body", { backgroundColor: "#76c897", duration: 2 });
+		const timeline = gsap.timeline({
+			duration: 1,
+		});
 
-		gsap.fromTo(
-			"#try",
-			{ y: -20, opacity: 0 },
-			{ y: 0, delay: 1.5, opacity: 1, ease: "power1.out" }
-		);
-
-		gsap.fromTo("P", { y: -5, opacity: 0 }, { y: 0, delay: 2, opacity: 1 });
-
-		gsap.fromTo(
-			"h2",
-			{ opacity: 0 },
-			{
-				opacity: 1,
-				duration: 1.5,
-				delay: 2.5,
-				ease: "power1.inOut",
-			}
-		);
-
-		gsap.fromTo(
-			"ul li",
-			{ opacity: 0 },
-			{ opacity: 1, delay: 3.5, stagger: 0.2, ease: "power1.in", duration: 0.7 }
-		);
+		timeline
+			.from("body", { backgroundColor: "#fff" })
+			.fromTo(
+				["#try", ".intro"],
+				{ y: -20, opacity: 0 },
+				{ y: 0, opacity: 1, ease: "power1.out", stagger: 0.2 }
+			)
+			.from("h2", {
+				opacity: 0,
+				ease: "none",
+			})
+			.fromTo(
+				"ul li",
+				{ opacity: 0, y: -20 },
+				{
+					opacity: 1,
+					y: 0,
+					stagger: 0.2,
+					ease: "power1.out",
+				}
+			);
 	}, []);
 
 	return (
