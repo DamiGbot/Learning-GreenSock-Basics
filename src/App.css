@@ -89,7 +89,8 @@ h2 {
 }
 .buttons {
 	position: fixed;
-	top: 20px;
+	top: auto;
+	bottom: 20px;
 	right: 20px;
 }
 .buttons button {
